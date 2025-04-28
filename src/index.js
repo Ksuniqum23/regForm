@@ -1,1 +1,1 @@
-console.log('Happy developing ✨')
+import 'bootstrap/dist/css/bootstrap.min.css'; // стили Bootstrap
