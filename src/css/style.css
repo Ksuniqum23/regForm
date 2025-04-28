@@ -1,0 +1,76 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Контейнер формы - прямоугольник с тенью и отступами */
+#form {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    width: 320px;
+    box-sizing: border-box;
+}
+
+/* Заголовок */
+#form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Кнопка */
+#form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #2575fc;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#form button:hover {
+    background-color: #1a52d4;
+}
+
+/* Стили для input и label */
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #2575fc;
+    outline: none;
+    box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+}
+
+.invalid-feedback {
+    color: #d93025;
+    font-size: 12px;
+    height: 14px; /* чтобы не прыгал контент при появлении ошибки */
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
