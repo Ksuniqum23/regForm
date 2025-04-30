@@ -1,4 +1,7 @@
 import {validationSchema} from "./app.js";
+import i18next from './locales/index.js';
+
+let schema = validationSchema();
 
 document.getElementById('form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -10,7 +13,7 @@ document.getElementById('form').addEventListener('submit', (e) => {
         confirmPassword: document.getElementById('confirmPassword').value,
     };
 
-    validationSchema.validate(formData, { abortEarly: false })
+    schema.validate(formData, { abortEarly: false })
         .then((result) => {
             console.log(result);
             const inputs = document.querySelectorAll('input');
@@ -21,12 +24,26 @@ document.getElementById('form').addEventListener('submit', (e) => {
         })
         .catch((error) => {
             console.log(error.inner);
-            error.inner.forEach(error => {
-                const input = document.getElementById(error.path);
+            error.inner.forEach(err => {
+                const input = document.getElementById(err.path);
                 input.classList.remove('is-valid');
                 input.classList.add('is-invalid');
-                const errorMessage = document.getElementById(`error-${error.path}`);
-                errorMessage.textContent = error.message;
+                const errorMessage = document.getElementById(`error-${err.path}`);
+                errorMessage.textContent = err.message;
             })
         })
+});
+
+document.getElementById('lang-ru').addEventListener('click', () => {
+    i18next.changeLanguage('ru').then(() => {
+        schema = validationSchema();
+        console.log('RUUUU');
+    });
+});
+
+document.getElementById('lang-en').addEventListener('click', () => {
+    i18next.changeLanguage('en').then(() => {
+        schema = validationSchema();
+        console.log('EEENGGG');
+    });
 });
